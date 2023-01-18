@@ -70,6 +70,66 @@ const domRead = () => {
 
 }
 
+// click 함수
+const clickBtn = (div0, bt0) => {
+    bt0.addEventListener("click", ()=> {
+        div0.innerHTML = `<h1>${bt0.innerHTML}</h1>`;
+        console.log(bt0.innerHTML);
+    });
+}
+
+// DOM 요소 수정
+const domUpdate = () => {
+    const div1 = document.querySelector("#div1"); // id가 div1인것
+    // div1.innerHTML = "요소를 수정하고 있습니다...";
+
+    // 반복되는 요소 -> 함수로 따로 빼기, 반복문 사용
+
+    /*
+    const bt1 = document.querySelector("#bt1"); 
+    bt1.addEventListener("click", ()=>{
+        div1.innerHTML = `<h1>${bt1.innerHTML}</h1>`; 
+        console.log(bt1.innerHTML);
+    });
+
+    const bt2 = document.querySelector("#bt2"); 
+    bt2.addEventListener("click", ()=>{
+        div1.innerHTML = `<h1>${bt2.innerHTML}</h1>`; 
+        console.log(bt2.innerHTML);
+    });
+
+    const bt3 = document.querySelector("#bt3"); 
+    bt3.addEventListener("click", ()=>{
+        div1.innerHTML = `<h1>${bt3.innerHTML}</h1>`; 
+        console.log(bt3.innerHTML);
+    });
+    */
+
+    /* 함수 호출로 이벤트 달기
+    const bt1 = document.querySelector("#bt1"); 
+    const bt2 = document.querySelector("#bt2"); 
+    const bt3 = document.querySelector("#bt3"); 
+
+    clickBtn(div1, bt1);
+    clickBtn(div1, bt2);
+    clickBtn(div1, bt3);
+    */
+
+    // 반복문 사용
+    // querySelectorAll 배열로 들어옴
+    const btc = document.querySelectorAll(".btc"); 
+    console.log(btc);
+    for( let bt of btc ){
+        console.log(bt);
+        bt.addEventListener("click", ()=> {
+            div1.innerHTML = `<h1>${bt.innerHTML}</h1>`;
+            console.log(bt.innerHTML);
+        });
+    }
+
+
+}
+
 // 자바스크립트 랜더링 제어
 // 콜백함수 function () {} 
 // 이름이 없는 함수는 => 로 쓸 수 있음 (대체가능)
@@ -82,6 +142,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // DOM 요소 접근
     domRead();
+
+    // DOM 요소 변경
+    domUpdate();
 
 }); 
 
